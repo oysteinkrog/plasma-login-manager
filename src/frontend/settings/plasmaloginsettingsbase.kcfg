@@ -25,6 +25,9 @@
     <entry name="ShowClock" type="Bool">
       <default code="true">defaultShowClock()</default>
     </entry>
+    <entry name="BlurWallpaper" type="Bool">
+      <default>true</default>
+    </entry>
     <entry name="WallpaperPluginId" type="String">
       <default code="true">defaultWallpaperPluginId()</default>
     </entry>

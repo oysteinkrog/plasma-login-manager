@@ -146,17 +146,14 @@ void WallpaperApp::setupWallpaperPlugin(WallpaperWindow *window)
 
 void WallpaperApp::blurScreen(const QString &screenName)
 {
+    const bool blur = PlasmaLoginSettings::getInstance().blurWallpaper();
     for (QWindow *window : topLevelWindows()) {
         WallpaperWindow *wallpaperWindow = qobject_cast<WallpaperWindow *>(window);
         if (!wallpaperWindow) {
             continue;
         }
 
-        if (wallpaperWindow->screen()->name() == screenName) {
-            wallpaperWindow->setBlur(true);
-        } else {
-            wallpaperWindow->setBlur(false);
-        }
+        wallpaperWindow->setBlur(blur && wallpaperWindow->screen()->name() == screenName);
     }
 }
 
